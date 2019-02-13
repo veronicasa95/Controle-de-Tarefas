@@ -65,16 +65,14 @@
                     <tbody>
                         <tr ng-repeat="tarefa in tarefasPendentes()">
                             <th scope="row">
-                                   <div class="input">
-                                 <input ng-bind="tarefa.feito" type="checkbox" checked></div>
+                                <div class="input">
+                                <input ng-bind="tarefa.feito" type="checkbox" checked></div>
                             </th>
                             <td>{{tarefa.nome}}</td>
                             <td>{{tarefa.categoria}}</td>
                         </tr>
                     </tbody>
-                </div>
-
-                
+                </div>                
             </div>  
         </div>          
     </body>

@@ -33,6 +33,7 @@
       } 
 
       $scope.tarefasPendentes = function () {
+
         const pendente = [];
         for(var i = 0; i < $scope.tarefas.length; i++){
             const tarefa = $scope.tarefas[i];
@@ -42,6 +43,28 @@
         }
         return pendente;
       } 
+
+      $scope.categoria = function() {
+
+        $scope.concluidoo = !$scope.concluidoo;
+        $scope.pendentee = !$scope.pendentee;
+        $scope.categg = !$scope.categg;
+
+        const listaNomes = [];
       
+        for(var i = 0; i < $scope.tarefas.length; i++){
+            const tarefa= $scope.tarefas[i];
+
+            if (tarefa.categoria){ 
+                listaNomes.push(tarefa.categoria[i]) ;                                                                     
+            }
+        }
+        return listaNomes;
+
+        $scope.adicionaCat = function(){
+            $scope.tarefa.categoria.push({})
+        }
+        
+    }
     }]);
 })();

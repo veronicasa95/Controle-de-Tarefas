@@ -18,14 +18,14 @@
 
                 <div class="p-3 mb-2 bg-white text-dark">
 
-                    <button type="button" class="btn btn-danger" >+ Categoria</button>
+                    <button type="button" class="btn btn-danger" ng-click="categoria()">+ Categoria</button>
                     <button type="button" class="btn btn-danger" >+ Tarefa</button>
                     <button type="button" class="btn btn-danger" >Ver tarefas por categorias</button>                    
                 </div>
 
-            <div class="p-3 mb-2 bg-info text-with">
-
-                <div class = "container" id="concluidas" >
+            
+            <div class = "container" id="concluidas" ng-hide="concluidoo">
+                <div class="p-3 mb-2 bg-info text-with">
                     <h3>Concluídas</h3>
 
                     <table class="table">
@@ -39,8 +39,8 @@
                         <tbody>
                             <tr ng-repeat="tarefa in tarefasConcluidas()" >
                                 <th scope="row">
-                                   <div class="input">
-                                 <input ng-bind="tarefa.feito" type="checkbox" checked>
+                                <div class="input">
+                                <input ng-bind="tarefa.feito" type="checkbox" checked>
                                </div> 
                                 </th>
                                 <td>{{tarefa.nome}}</td>
@@ -49,18 +49,19 @@
                         </tbody>
                     </table>
                 </div>
+            </div>
             </br>
                 
-                <div class="container" id="pendente">
+            <div class="container" id="pendente" ng-hide="pendentee">
+                <div class="p-3 mb-2 bg-info text-with">
                     <h3> Pendentes</h3>
 
-                    <table class="table">
+                <table class="table">
                         <tr>
                                 <th scope="col">Tarefa Realizada</th>
                                 <th scope="col">Tarefa</th>
                                 <th scope="col">Categoria</th>
-                        </tr>
-                    </table>
+                        </tr>                 
 
                     <tbody>
                         <tr ng-repeat="tarefa in tarefasPendentes()">
@@ -72,8 +73,29 @@
                             <td>{{tarefa.categoria}}</td>
                         </tr>
                     </tbody>
-                </div>                
+                </table>
+                </div> 
             </div>  
-        </div>          
+
+
+            <div ng-show="categg" class="card-categoria">
+                <div ng-repeat = "categoria()" class ="container">
+                <div class="card text-center text-white bg-danger mb-3" style="max-width: 18rem;">
+
+                    <button> Adicione uma nova Categoria</button>
+
+                        <div class="card-header">Categorias Disponíveis
+                        </div> <!-- card-header --> 
+                        <div class="card-body">
+                        <p class="card-text id">{{categorias.listaNome}}</p>
+                        </div> <!-- card-text --> 
+                </div>   <!-- card --> 
+                </div> <!-- ng-repeat --> 
+            </div> <!-- ng-show="categg" -->    
+
+            </div> <!-- ng-controller="UserCtrl" -->
+            </div> <!-- container-fluid -->
+    </div>  <!-- ng-app -->
+                          
     </body>
 </html> 

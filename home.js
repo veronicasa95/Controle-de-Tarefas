@@ -5,6 +5,17 @@
 
     .controller('UserCtrl', ['$scope', function($scope) {
 
+        var buscar = function(lista, item) {
+          let exists = false;
+          for(let i = 0; i < lista.length; i++) {
+            if(lista[i].toUpperCase() === item.toUpperCase()) {
+               exists = true;
+               break;
+            }
+          }
+          return exists;
+      }
+
       $scope.tarefas =  [ 
             { nome: 'Varrer o quarto', categoria: 'Casa', feito: false },
             { nome: 'Lavar a louça', categoria: 'Casa', feito: true }, 
@@ -44,27 +55,41 @@
         return pendente;
       } 
 
-      $scope.categoria = function() {
-
+     $scope.choicecat = function(){
         $scope.concluidoo = !$scope.concluidoo;
         $scope.pendentee = !$scope.pendentee;
         $scope.categg = !$scope.categg;
+      }
 
-        const listaNomes = [];
-      
+     $scope.categorias = function(categoria) {       
+        const listaNomes = [];      
         for(var i = 0; i < $scope.tarefas.length; i++){
-            const tarefa= $scope.tarefas[i];
+            const tarefa = $scope.tarefas[i];
 
             if (tarefa.categoria){ 
-                listaNomes.push(tarefa.categoria[i]) ;                                                                     
+                if(!buscar(listaNomes, tarefa.categoria)){
+                    listaNomes.push(tarefa.categoria) ; 
+                }                                                                             
             }
         }
-        return listaNomes;
+        return listaNomes; 
+        }    
 
-        $scope.adicionaCat = function(){
-            $scope.tarefa.categoria.push({})
+    $scope.adicionar = function(){        
+      if(buscar($scope.categorias(), $scope.novaCategoria)) {
+        $scope.mensagem = "Categoria já existente. Inclua categoria válida."
+    } else {
+        $scope.categorias().push($scope.novaCategoria);
+        $scope.mensagem = "Categoria cadastrada."
+        }              
+    } 
+
+    $scope.keyPressing = function ($event) {
+        console.log("Event: ",$event.charCode);
+        if($event.charCode == 13) {
+            $scope.adicionar();
         }
-        
-    }
+    } 
+       
     }]);
 })();

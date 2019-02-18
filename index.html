@@ -18,7 +18,7 @@
 
                 <div class="p-3 mb-2 bg-white text-dark">
 
-                    <button type="button" class="btn btn-danger" ng-click="categoria()">+ Categoria</button>
+                    <button type="button" class="btn btn-danger" ng-click="choicecat()">+ Categoria</button>
                     <button type="button" class="btn btn-danger" >+ Tarefa</button>
                     <button type="button" class="btn btn-danger" >Ver tarefas por categorias</button>                    
                 </div>
@@ -79,18 +79,15 @@
 
 
             <div ng-show="categg" class="card-categoria">
-                <div ng-repeat = "categoria()" class ="container">
-                <div class="card text-center text-white bg-danger mb-3" style="max-width: 18rem;">
+                
+                    <input ng-keypress = "keyPressing($event)"ng-model="novaCategoria"> </input><button ng-click="adicionar()"> Adicionar </button>
+                    <div ng-repeat="categoria in categorias()">
+                        <span> {{categoria}} </span>
+                        
+                    </div>
 
-                    <button> Adicione uma nova Categoria</button>
-
-                        <div class="card-header">Categorias Disponíveis
-                        </div> <!-- card-header --> 
-                        <div class="card-body">
-                        <p class="card-text id">{{categorias.listaNome}}</p>
-                        </div> <!-- card-text --> 
-                </div>   <!-- card --> 
-                </div> <!-- ng-repeat --> 
+                    <div class="messagem">{{mensagem}}</div>
+                 
             </div> <!-- ng-show="categg" -->    
 
             </div> <!-- ng-controller="UserCtrl" -->

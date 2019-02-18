@@ -18,12 +18,12 @@
 
                 <div class="p-3 mb-2 bg-white text-dark">
 
-                    <button type="button" class="btn btn-danger" ng-click="">+ Home</button>
+                    <a ng-href="index.html"><button type="button" class="btn btn-danger" ng-click="index.html">+ Home</button>
+                    </a>
                     <button type="button" class="btn btn-danger" ng-click="choiceCategoria()">+ Categoria</button>
-                    <button type="button" class="btn btn-danger" ng-click="choicetarefa()">+ Tarefa</button>
+                    <button type="button" class="btn btn-danger" ng-click="choiceTarefa()">+ Tarefa</button>
                     <button type="button" class="btn btn-danger" >Ver tarefas por categorias</button>                    
                 </div>
-
             
             <div class = "container" id="concluidas" ng-hide="concluidoo">
                 <div class="p-3 mb-2 bg-info text-with">
@@ -81,12 +81,22 @@
 
             <div ng-show="categg" class="card-categoria">
                 
-                    <input ng-keypress = "keyPressing($event)"ng-model="novaCategoria"> </input><button ng-click="adicionar()"> Adicionar </button>
-                    <div ng-repeat="categoria in categorias()">
-                        <span> {{categoria}} </span>                        
-                    </div>
+                <div class="card text-left text-white bg-danger mb-3" style="max-width: 18rem;">
 
-                    <div class="messagem">{{mensagem}}</div>
+                    <div class="card-header">
+                    <input ng-keypress = "keyPressing($event)"ng-model="novaCategoria"> </input><button ng-click="adicionar()"> Adicionar </button>
+                    </div>  <!-- card-header -->
+
+                    <div class="card-body">
+                    <div ng-repeat="categoria in categorias()">
+                        <p class="card-text id"><span> {{categoria}} </span>                        
+                        </p>
+                    </div> <!-- ng-repeat categoria -->
+
+                    </div> <!-- card-body -->
+                </div> <!-- card -->
+                    <div class="messagem">{{mensagem}}</div>              
+                
                  
             </div> <!-- ng-show="categg" -->    
 

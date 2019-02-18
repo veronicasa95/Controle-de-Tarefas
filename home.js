@@ -53,15 +53,16 @@
             }
         }
         return pendente;
-      } 
+      }      
 
      $scope.choiceCategoria = function(){
         $scope.concluidoo = true;
         $scope.pendentee = true;
         $scope.categg = true;
+        $scope.tarefaa = false;
       }
 
-    $scope.choicetarefa = function(){
+    $scope.choiceTarefa = function(){
         $scope.concluidoo = true;
         $scope.pendentee = true;
         $scope.categg = false;

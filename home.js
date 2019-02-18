@@ -55,10 +55,17 @@
         return pendente;
       } 
 
-     $scope.choicecat = function(){
-        $scope.concluidoo = !$scope.concluidoo;
-        $scope.pendentee = !$scope.pendentee;
-        $scope.categg = !$scope.categg;
+     $scope.choiceCategoria = function(){
+        $scope.concluidoo = true;
+        $scope.pendentee = true;
+        $scope.categg = true;
+      }
+
+    $scope.choicetarefa = function(){
+        $scope.concluidoo = true;
+        $scope.pendentee = true;
+        $scope.categg = false;
+        $scope.tarefaa = true;
       }
 
      $scope.categorias = function(categoria) {       
@@ -79,7 +86,7 @@
       if(buscar($scope.categorias(), $scope.novaCategoria)) {
         $scope.mensagem = "Categoria já existente. Inclua categoria válida."
     } else {
-        $scope.categorias().push($scope.novaCategoria);
+        $scope.tarefas.push({ categoria: $scope.novaCategoria});
         $scope.mensagem = "Categoria cadastrada."
         }              
     } 
@@ -90,6 +97,10 @@
             $scope.adicionar();
         }
     } 
+
+    $scope.tarefaAba = function(){
+
+    }
        
     }]);
 })();

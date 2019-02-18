@@ -18,8 +18,9 @@
 
                 <div class="p-3 mb-2 bg-white text-dark">
 
-                    <button type="button" class="btn btn-danger" ng-click="choicecat()">+ Categoria</button>
-                    <button type="button" class="btn btn-danger" >+ Tarefa</button>
+                    <button type="button" class="btn btn-danger" ng-click="">+ Home</button>
+                    <button type="button" class="btn btn-danger" ng-click="choiceCategoria()">+ Categoria</button>
+                    <button type="button" class="btn btn-danger" ng-click="choicetarefa()">+ Tarefa</button>
                     <button type="button" class="btn btn-danger" >Ver tarefas por categorias</button>                    
                 </div>
 
@@ -82,13 +83,27 @@
                 
                     <input ng-keypress = "keyPressing($event)"ng-model="novaCategoria"> </input><button ng-click="adicionar()"> Adicionar </button>
                     <div ng-repeat="categoria in categorias()">
-                        <span> {{categoria}} </span>
-                        
+                        <span> {{categoria}} </span>                        
                     </div>
 
                     <div class="messagem">{{mensagem}}</div>
                  
             </div> <!-- ng-show="categg" -->    
+
+            <div ng-show="tarefaa" class="">
+                <select ng-model="selectCategoria">
+                    <option value="categoria" ng-repeat="categoria in categorias">
+                        {{categoria}}
+                    </option>
+                </select>
+
+                <div ng-repeat="tarefa in tarefas">
+                    <span> {{tarefa.nome}} {{tarefa.categoria}}</span>
+                </div>
+
+                <div class="messagem2">{{mensagem}}</div>
+
+            </div>
 
             </div> <!-- ng-controller="UserCtrl" -->
             </div> <!-- container-fluid -->

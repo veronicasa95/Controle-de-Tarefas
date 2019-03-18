@@ -66,8 +66,13 @@
         $scope.concluidoo = true;
         $scope.pendentee = true;
         $scope.categg = false;
-        $scope.tarefaa = true;
+        $scope.tarefaa = true;        
       }
+
+    $scope.cadtarefa= function () {
+        
+      }
+    
 
      $scope.categorias = function(categoria) {       
         const listaNomes = [];      
@@ -98,10 +103,7 @@
             $scope.adicionar();
         }
     } 
-
-    $scope.tarefaAba = function(){
-
-    }
-       
+    
+           
     }]);
 })();
